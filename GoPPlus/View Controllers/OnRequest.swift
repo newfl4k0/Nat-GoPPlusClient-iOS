@@ -25,7 +25,7 @@ class OnRequest: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate
     var nearVehiclesMarkers:[GMSMarker] = []
     var latitude:Double = 0.0
     var longitude:Double = 0.0
-    var vehicleIndexSelected = 0
+    var vehicleIndexSelected = -1
     var loopNearVehicles:Bool = true
     var unratedService:Constants.UnratedService = Constants.UnratedService(id: 0, conductor: 0, nombre_conductor: "", fecha: "", precio: 0)
     var ratingOpened:Bool = false
@@ -136,30 +136,35 @@ class OnRequest: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate
     }
     
     func getLocationAddress(location:CLLocationCoordinate2D) {
-        GMSGeocoder().reverseGeocodeCoordinate(location) { (response, error) in
-            if error != nil {
-                return
-            }
-            
-            if let result = response?.firstResult() {
-                self.validStreet = false
-                self.streetLabel.text = "Sin disponibilidad en esta zona"
-                
-                if let countryCode = result.country {
-                    if (countryCode == "México" || countryCode == "Mexico") {
-                        if let street = result.thoroughfare,
-                            let locality = result.subLocality {
-                            
-                            self.streetLabel.text = street + " " + locality
-                        } else {
-                            self.streetLabel.text = result.thoroughfare ?? "Calle no encontrada"
-                        }
-                        
-                        self.validStreet = true
-                    }
+        
+        if !Constants.isConnectedToNetwork() {
+            Constants.showMessage(msg: "No tienes conexión a internet")
+        } else {
+            GMSGeocoder().reverseGeocodeCoordinate(location) { (response, error) in
+                if error != nil {
+                    return
                 }
-            } else {
-                Constants.showMessage(msg: "No se encontraron direcciones")
+                
+                if let result = response?.firstResult() {
+                    self.validStreet = false
+                    self.streetLabel.text = "Sin disponibilidad en esta zona"
+                    
+                    if let countryCode = result.country {
+                        if (countryCode == "México" || countryCode == "Mexico") {
+                            if let street = result.thoroughfare,
+                                let locality = result.subLocality {
+                                
+                                self.streetLabel.text = street + " " + locality
+                            } else {
+                                self.streetLabel.text = result.thoroughfare ?? "Calle no encontrada"
+                            }
+                            
+                            self.validStreet = true
+                        }
+                    }
+                } else {
+                    Constants.showMessage(msg: "No se encontraron direcciones")
+                }
             }
         }
     }
@@ -259,10 +264,18 @@ class OnRequest: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate
             }
             
             self.vehiclesArray = vehiclesByType
-            self.vehicleIndexSelected = 0
+            
+            if self.vehicleIndexSelected == -1 {
+                self.vehicleIndexSelected = 0;
+            }
+            
             self.typeSelected = self.vehiclesArray[self.vehicleIndexSelected]
             self.collectionView.reloadData()
             self.doLoopNearVehicles()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+                self.displayVehiclesByType()
+            }
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 self.displayVehiclesByType()

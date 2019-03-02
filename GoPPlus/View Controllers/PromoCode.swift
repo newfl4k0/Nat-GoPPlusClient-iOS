@@ -1,6 +1,6 @@
 import UIKit
 
-class PromoCode: UIViewController {
+class PromoCode: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var codeField: UITextField!
     @IBOutlet weak var loading: UIActivityIndicatorView!
@@ -17,6 +17,8 @@ class PromoCode: UIViewController {
         super.viewDidLoad()
         self.loading.stopAnimating()
         self.setupToolbar()
+        self.codeField.delegate = self
+        self.codeField.autocapitalizationType = .allCharacters
     }
 
     @IBAction func dismissController(_ sender: Any) {
@@ -24,10 +26,25 @@ class PromoCode: UIViewController {
         self.performSegue(withIdentifier: "unwindDiscount", sender: self)
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == self.codeField {
+            if string == "" {
+                textField.deleteBackward()
+            } else {
+                textField.insertText(string.uppercased())
+            }
+            
+            return false
+        }
+        
+        return true
+    }
+    
     @IBAction func doVerifyCode(_ sender: Any) {
         let id = Constants.getIntStored(key: Constants.DBKeys.user + "clienteid")
         let code = self.codeField.text!
         let codeHint = self.codeField.placeholder!
+    
         
         var message = ""
         
