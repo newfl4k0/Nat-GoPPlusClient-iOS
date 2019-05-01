@@ -143,7 +143,7 @@ class Constants: NSObject {
         }))
         
         UIApplication.topViewController()?.present(alert, animated: true, completion: {
-            print("Alert displayed")
+            //print("Alert displayed")
         })
     }
     
@@ -353,8 +353,8 @@ class Constants: NSObject {
         
         var request = URLRequest(url: urlComponent.url!)
         
-        print("=== GET ===")
-        print(urlComponent.url!)
+        //print("=== GET ===")
+        //print(urlComponent.url!)
         
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -380,7 +380,7 @@ class Constants: NSObject {
                 return
             }
             
-            print(content)
+            //print(content)
             
             if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
                 completion(json)
@@ -412,21 +412,19 @@ class Constants: NSObject {
         
         var request = URLRequest(url: urlComponent.url!)
         
-        print("=== GET ===")
-        print(urlComponent.url!)
+        //print("=== GET ===")
+        //print(urlComponent.url!)
         
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         if (existStored(key: "appid")) {
             let appid:String = getStringStored(key: "appid")
-            print("appid: " + appid)
             request.setValue(appid, forHTTPHeaderField: "appid")
         }
         
         if (existStored(key: "user.id")) {
             let userid:String = toEncrypt(text: String(getIntStored(key: "user.id")))
-            print("userid: " + userid)
             request.setValue(userid , forHTTPHeaderField: "userid")
         }
         
@@ -461,7 +459,7 @@ class Constants: NSObject {
             }
             
             if let dataString = String(data: content, encoding: .utf8) {
-                print("getRequest response: \(dataString)")
+                //print("getRequest response: \(dataString)")
             }
             
             if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
@@ -486,18 +484,16 @@ class Constants: NSObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         
-        print("=== POST ===")
-        print(endpoint)
+        //print("=== POST ===")
+        //print(endpoint)
         
         if (existStored(key: "appid")) {
             let appid:String = getStringStored(key: "appid")
-            print("appid:" + appid)
             request.setValue(appid, forHTTPHeaderField: "appid")
         }
         
         if (existStored(key: "user.id")) {
             let userid = toEncrypt(text: String(getIntStored(key: "user.id")))
-            print("userid:" + userid)
             request.setValue(userid, forHTTPHeaderField: "userid")
         }
         
@@ -523,7 +519,7 @@ class Constants: NSObject {
             }
             
             if let dataString = String(data: content, encoding: .utf8) {
-                print("postRequest response: \(dataString)")
+                //print("postRequest response: \(dataString)")
             }
             
             if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {

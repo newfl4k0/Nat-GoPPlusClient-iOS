@@ -105,6 +105,7 @@ class Login: UIViewController {
                             Constants.store(key: Constants.DBKeys.user + "nombre", value: result.nombre ?? "")
                             Constants.store(key: Constants.DBKeys.user + "telefono", value: result.telefono ?? "")
                             Constants.store(key: Constants.DBKeys.user + "codigo", value: result.codigo ?? "")
+                            Constants.store(key: Constants.DBKeys.user + "contrasena", value: pass.md5())
                             
                             self.emailField.text = ""
                             self.passField.text = ""
