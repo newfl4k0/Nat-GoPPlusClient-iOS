@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6dJ-iM-vzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6dJ-iM-vzF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1234,7 +1234,7 @@
                                             <constraint firstItem="Rea-mv-kq2" firstAttribute="centerX" secondItem="ILx-bk-U1e" secondAttribute="centerX" id="igk-NT-CkE"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fecha de cumpleaños" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oow-tA-ZHn">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fecha de nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oow-tA-ZHn">
                                         <rect key="frame" x="16" y="186" width="343" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Pch-TX-DRW"/>
@@ -2009,6 +2009,7 @@
                         <outlet property="comments" destination="cJu-Vy-UlD" id="6i2-c8-7dK"/>
                         <outlet property="dateFinished" destination="tgW-oO-kCS" id="Hw0-2O-Gmp"/>
                         <outlet property="driverName" destination="FaP-Wi-fHr" id="JgC-wX-Zcn"/>
+                        <outlet property="emailInfo" destination="fqa-kb-Twb" id="7Lb-w4-JFH"/>
                         <outlet property="fiveStar" destination="eBg-Sv-q3e" id="qTe-Y7-J2S"/>
                         <outlet property="fourStar" destination="53F-zL-Kvi" id="bLY-rs-Chs"/>
                         <outlet property="imageProfile" destination="0Co-cj-z9U" id="B9u-dQ-q8M"/>
@@ -3249,7 +3250,7 @@
         <image name="cancelar" width="96" height="96"/>
         <image name="cc" width="76" height="54"/>
         <image name="chat" width="96" height="96"/>
-        <image name="chevronarriba" width="37.5" height="37.5"/>
+        <image name="chevronarriba" width="50" height="50"/>
         <image name="defaultprofile" width="185" height="185"/>
         <image name="deletebutton" width="100" height="100"/>
         <image name="flag" width="104" height="96"/>
@@ -3257,15 +3258,15 @@
         <image name="iconstaryellow" width="50" height="48"/>
         <image name="location" width="49" height="49"/>
         <image name="logo" width="171" height="124"/>
-        <image name="menu2" width="36" height="36"/>
+        <image name="menu2" width="48" height="48"/>
         <image name="pin" width="57" height="71"/>
         <image name="pinblanco" width="32" height="39"/>
         <image name="pinspace" width="29" height="72"/>
         <image name="redbutton" width="376" height="61"/>
-        <image name="reload-1" width="37.5" height="37.5"/>
+        <image name="reload-1" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9hc-B2-RTi"/>
+        <segue reference="nl2-Tr-fKE"/>
         <segue reference="ZK8-7i-7ay"/>
     </inferredMetricsTieBreakers>
 </document>

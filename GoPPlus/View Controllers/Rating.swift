@@ -22,6 +22,7 @@ class Rating: UIViewController {
     @IBOutlet weak var fiveStar: UIButton!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var emailInfo: UILabel!
     
     
     var rate:Int = 0
@@ -36,6 +37,7 @@ class Rating: UIViewController {
         self.dateFinished.text = self.unratedService.fecha
         self.showDriverProfileImage()
         self.loading.stopAnimating()
+        self.emailInfo.text = Constants.getFromSetting(key: "correoAppCliente")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

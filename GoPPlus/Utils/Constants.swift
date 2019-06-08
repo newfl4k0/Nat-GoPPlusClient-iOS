@@ -147,6 +147,25 @@ class Constants: NSObject {
         })
     }
     
+    static func getFromSetting(key: String) -> String {
+        var value = ""
+        
+        if let data = UserDefaults.standard.value(forKey:"settings") as? Data {
+            guard let settings = try? PropertyListDecoder().decode([Constants.Settings].self, from: data) else {
+                print("Error getting settings")
+                return value
+            }
+            
+            for s in settings {
+                if s.k == key {
+                    value = s.v
+                }
+            }
+        }
+        
+        return value
+    }
+    
     static func toEncrypt(text: String) -> String {
         return text.sha256().uppercased()
     }
@@ -221,7 +240,7 @@ class Constants: NSObject {
                 return
             }
             
-            if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
+            if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
             } else {
                 completion(nil)
@@ -282,7 +301,7 @@ class Constants: NSObject {
                 return
             }
             
-            if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
+            if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
             } else {
                 completion(nil)
@@ -329,7 +348,7 @@ class Constants: NSObject {
                 return
             }
             
-            if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
+            if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
             } else {
                 completion(nil)
@@ -382,7 +401,7 @@ class Constants: NSObject {
             
             //print(content)
             
-            if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
+            if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
             } else {
                 completion(nil)
@@ -462,7 +481,7 @@ class Constants: NSObject {
                 //print("getRequest response: \(dataString)")
             }
             
-            if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
+            if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
             } else {
                 completion(nil)
@@ -522,7 +541,7 @@ class Constants: NSObject {
                 //print("postRequest response: \(dataString)")
             }
             
-            if let json = (try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) {
+            if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
             } else {
                 completion(nil)

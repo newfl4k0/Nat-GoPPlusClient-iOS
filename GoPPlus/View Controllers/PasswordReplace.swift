@@ -1,6 +1,6 @@
 import UIKit
 
-class PasswordReplace: UIViewController {
+class PasswordReplace: UIViewController, UITextFieldDelegate {
     var email:String = ""
     var passwordUpdated:Bool = false
     
@@ -18,6 +18,7 @@ class PasswordReplace: UIViewController {
         super.viewDidLoad()
         self.loading.stopAnimating()
         self.setupToolbar()
+        self.codeField.delegate = self
     }
     
     private func setupToolbar() {
@@ -106,6 +107,18 @@ class PasswordReplace: UIViewController {
         } else {
             Constants.showMessage(msg: message)
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let textValue = codeField.text {
+            if textField == self.codeField {
+                if textValue.count > 4 {
+                    return false
+                }
+            }
+        }
+        
+        return true
     }
     
 }
