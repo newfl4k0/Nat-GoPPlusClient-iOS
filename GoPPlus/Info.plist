@@ -17,23 +17,25 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.76</string>
+	<string>1.0.81</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>com.pplus.go</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>GoPPlus</string>
-				<string>fb2338500703050335</string>
+				<string>fb2328732394056096</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>10076</string>
+	<string>10081</string>
 	<key>FacebookAppID</key>
-	<string>2338500703050335</string>
+	<string>2328732394056096</string>
 	<key>FacebookDisplayName</key>
 	<string>GoPPlus</string>
 	<key>LSApplicationQueriesSchemes</key>

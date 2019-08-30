@@ -278,6 +278,7 @@ class Start: UIViewController {
                         if resultData.data != nil  {
                             if resultData.data?.estatus_reserva == 3 {
                                 if self.OnWaitController != nil {
+                                    self.OnWaitController?.statusLabelValue = "Buscando la unidad más cercana"
                                     self.OnWaitController?.setServiceData(data: resultData.data!)
                                 }
                                 

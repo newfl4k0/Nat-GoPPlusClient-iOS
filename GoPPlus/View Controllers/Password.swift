@@ -76,6 +76,10 @@ class Password: UIViewController {
             message += "\n" + ph2 + " no coincide con " + ph3
         }
         
+        if pass1.elementsEqual(pass2) {
+            message += "\n" + ph1 + " es igual que " + ph2
+        }
+        
         if !pass1.md5().elementsEqual(lastPass) {
             message += "\n" + ph1 + " es incorrecta "
         }
@@ -115,14 +119,13 @@ class Password: UIViewController {
                         return;
                     }
                     
-                    if let status = response["status"] as? Bool,
-                        let message = response["message"] as? String {
+                    if let status = response["status"] as? Bool {
                         
                         if (status) {
                             Constants.store(key: Constants.DBKeys.user + "contrasena", value: pass2.md5())
                         }
                         
-                        Constants.showMessage(msg: message)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }

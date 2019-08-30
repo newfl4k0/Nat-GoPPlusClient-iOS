@@ -173,8 +173,8 @@ class Rating: UIViewController {
             message += "\n" + Validator.replaceMessage(name: placeholder, value: comments, message: Validator.textError)
         }
         
-        if comments.count > 30 {
-            message += "\n El texto debe ser menor a 30 caracteres"
+        if comments.count > 50 {
+            message += "\n El texto debe ser menor a 50 caracteres"
         }
         
         if comments.count < 2 {

@@ -32,6 +32,7 @@ class Signup: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var email2Field: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var checkboxView: UIView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
@@ -133,6 +134,7 @@ class Signup: UIViewController, UITextFieldDelegate {
         self.nameField.inputAccessoryView = toolbar
         self.phoneField.inputAccessoryView = toolbar
         self.emailField.inputAccessoryView = toolbar
+        self.email2Field.inputAccessoryView = toolbar
         self.passwordField.inputAccessoryView = toolbar
     }
     
@@ -185,12 +187,14 @@ class Signup: UIViewController, UITextFieldDelegate {
         let name = nameField.text!
         let phone = phoneField.text!
         let email = emailField.text!
+        let email2 = email2Field.text!
         let password = passwordField.text!
         
         let birthdayPlaceholder = birthdayField.placeholder!
         let namePlaceholder = nameField.placeholder!
         let phonePlaceholder = phoneField.placeholder!
         let emailPlaceholder = emailField.placeholder!
+        let email2Placeholder = email2Field.placeholder!
         let passwordPlaceholder = passwordField.placeholder!
         
         var message = ""
@@ -229,6 +233,10 @@ class Signup: UIViewController, UITextFieldDelegate {
         
         if !Validator.isEmail(email: email) {
             message += "\n" + Validator.replaceMessage(name: emailPlaceholder, value: email, message: Validator.emailError)
+        }
+        
+        if email2 != email {
+            message += "\n" + email2Placeholder + " no es igual a " + emailPlaceholder
         }
         
         if !Validator.isRequired(text: password) {
@@ -327,10 +335,10 @@ class Signup: UIViewController, UITextFieldDelegate {
                         }
                         
                         let id:String = myDictionary.object(forKey: "id") as! String
-                        var birthday:String = myDictionary.object(forKey: "birthday") as! String
-                        let email:String = myDictionary.object(forKey: "email") as! String
-                        let first_name:String = myDictionary.object(forKey: "first_name") as! String
-                        let last_name:String = myDictionary.object(forKey: "last_name") as! String
+                        var birthday:String = myDictionary.object(forKey: "birthday") as? String ?? ""
+                        let email:String = myDictionary.object(forKey: "email") as? String ?? ""
+                        let first_name:String = myDictionary.object(forKey: "first_name") as? String ?? ""
+                        let last_name:String = myDictionary.object(forKey: "last_name") as? String ?? ""
                         
                         
                         if !birthday.isEmpty {
@@ -340,7 +348,9 @@ class Signup: UIViewController, UITextFieldDelegate {
                         self.birthdayField.text = birthday
                         self.nameField.text = first_name + " " + last_name
                         self.emailField.text = email
+                        self.email2Field.text = email
                         self.emailField.isEnabled = false
+                        self.email2Field.isEnabled = false
                         
                         self.newUser.fbid = id
                         self.newUser.name = first_name + " " + last_name

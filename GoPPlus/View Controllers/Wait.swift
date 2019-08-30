@@ -7,7 +7,7 @@ class Wait: UIViewController, UIWebViewDelegate {
     public var confirmationVisible:Bool = false
     public var statusLabelValue:String = ""
     
-    let alert:UIAlertController = UIAlertController(title: "GoPPlus", message: "¿Desea cancelar el servicio?", preferredStyle: UIAlertController.Style.alert)
+    let alert:UIAlertController = UIAlertController(title: "GoPPlus", message: "No se encontraron unidades cercanas, ¿Desea seguir esperando?", preferredStyle: UIAlertController.Style.alert)
     
     @IBOutlet weak var webview: UIWebView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -28,6 +28,11 @@ class Wait: UIViewController, UIWebViewDelegate {
         }))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.statusLabel.text = "Espere un momento"
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.statusLabel.text = "Espere un momento"
@@ -39,7 +44,9 @@ class Wait: UIViewController, UIWebViewDelegate {
         DispatchQueue.main.async {
             if self.statusLabelValue.isEmpty {
                 self.statusLabelValue = "Buscando la unidad más cercana"
-                self.statusLabel.text = self.statusLabelValue;
+                self.statusLabel.text = self.statusLabelValue
+            } else {
+                self.statusLabel.text = self.statusLabelValue
             }
         }
         
