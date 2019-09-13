@@ -154,8 +154,13 @@ class CreditCard: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             let id   = Constants.toEncrypt64(text: String(Constants.getIntStored(key: Constants.DBKeys.user + "clienteid")))
             let url_ = Constants.APIEndpoint.payment + "card-service-start?y=" + id + "&i=" + card + "&f=" + exp + "&a=" + cvv
             
+            var request = URLRequest(url: URL(string: url_)!)
+            
+            request.addValue(Constants.getHeaderValue(key: "appid"), forHTTPHeaderField:"appid")
+            request.addValue(Constants.toEncrypt(text: Constants.getHeaderValue(key: "user.id")), forHTTPHeaderField:"userid")
+            
             self.view.bringSubviewToFront(self.webview)
-            self.webview.loadRequest(URLRequest(url: URL(string: url_)!))
+            self.webview.loadRequest(request)
         } else {
             Constants.showMessage(msg: message)
         }

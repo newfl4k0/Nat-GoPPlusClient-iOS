@@ -411,6 +411,15 @@ class Constants: NSObject {
         task.resume()
     }
     
+    static func getHeaderValue(key:String) -> String{
+        
+        if (existStored(key: key)) {
+            return getStringStored(key: key)
+        }
+        
+        return ""
+    }
+    
     static func getRequest(endpoint: String, parameters: [String: String]?, completion: @escaping ([String:Any]?) -> ()) {
         
         if (!isConnectedToNetwork()) {

@@ -177,7 +177,13 @@ class Destination: UIViewController, GMSMapViewDelegate, UIWebViewDelegate {
         
         self.webview.isHidden = false
         self.view.bringSubviewToFront(self.webview)
-        self.webview.loadRequest(URLRequest(url: URL(string: url_)!))
+        
+        var request = URLRequest(url: URL(string: url_)!)
+        
+        request.addValue(Constants.getHeaderValue(key: "appid"), forHTTPHeaderField:"appid")
+        request.addValue(Constants.toEncrypt(text: Constants.getHeaderValue(key: "user.id")), forHTTPHeaderField:"userid")
+        
+        self.webview.loadRequest(request)
     }
     
     @IBAction func openCreditCard(_ sender: Any) {
