@@ -1,6 +1,6 @@
 import UIKit
 
-class PasswordReplace: UIViewController, UITextFieldDelegate {
+class PasswordReplace: UIViewController {
     var email:String = ""
     var passwordUpdated:Bool = false
     
@@ -18,7 +18,6 @@ class PasswordReplace: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.loading.stopAnimating()
         self.setupToolbar()
-        self.codeField.delegate = self
     }
     
     private func setupToolbar() {
@@ -53,6 +52,10 @@ class PasswordReplace: UIViewController, UITextFieldDelegate {
         
         if !Validator.isRequired(text: code) {
             message += Validator.replaceMessage(name: codePlaceholder, value: code, message: Validator.requiredError)
+        }
+        
+        if code.count != 5 {
+            message += "El campo " + codePlaceholder + " debe ser igual a cinco caracteres."
         }
         
         if !Validator.isRequired(text: pass) {
@@ -108,17 +111,4 @@ class PasswordReplace: UIViewController, UITextFieldDelegate {
             Constants.showMessage(msg: message)
         }
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let textValue = codeField.text {
-            if textField == self.codeField {
-                if textValue.count > 4 {
-                    return false
-                }
-            }
-        }
-        
-        return true
-    }
-    
 }

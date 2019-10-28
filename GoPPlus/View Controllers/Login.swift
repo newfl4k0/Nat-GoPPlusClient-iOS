@@ -159,6 +159,7 @@ class Login: UIViewController {
     private func openStartController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let startController = storyboard.instantiateViewController(withIdentifier: "gopplusview") as! Start
+        startController.modalPresentationStyle = .fullScreen
         self.present(startController, animated: false, completion: nil)
     }
     

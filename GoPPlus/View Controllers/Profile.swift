@@ -174,21 +174,22 @@ class Profile: UIViewController, UITextFieldDelegate, UIImagePickerControllerDel
                     return;
                 }
                 
-                if let status = response["status"] as? Bool,
-                    let message = response["message"] as? String {
-                    
-                    if (status == true) {
-                        Constants.showMessage(msg: "Actualizado");
-                        Constants.store(key: Constants.DBKeys.user + "correo", value: email)
-                        Constants.store(key: Constants.DBKeys.user + "telefono", value: phone)
-                        Constants.store(key: Constants.DBKeys.user + "nombre", value: name)
-                        Constants.store(key: Constants.DBKeys.user + "fechac", value: birth)
-                    } else {
-                        Constants.showMessage(msg: message)
-                    }
-                }
+                 DispatchQueue.main.async {
                 
-                DispatchQueue.main.async {
+                    if let status = response["status"] as? Bool,
+                        let message = response["message"] as? String {
+                        
+                        if (status == true) {
+                            Constants.showMessage(msg: "Actualizado");
+                            Constants.store(key: Constants.DBKeys.user + "correo", value: email)
+                            Constants.store(key: Constants.DBKeys.user + "telefono", value: phone)
+                            Constants.store(key: Constants.DBKeys.user + "nombre", value: name)
+                            Constants.store(key: Constants.DBKeys.user + "fechac", value: birth)
+                        } else {
+                            Constants.showMessage(msg: message)
+                        }
+                    }
+                    
                     self.loading.stopAnimating()
                 }
             }

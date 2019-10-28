@@ -399,7 +399,7 @@ class Constants: NSObject {
                 return
             }
             
-            //print(content)
+            print(content)
             
             if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
                 completion(json)
@@ -487,7 +487,7 @@ class Constants: NSObject {
             }
             
             if let dataString = String(data: content, encoding: .utf8) {
-                //print("getRequest response: \(dataString)")
+                print("getRequest response: \(dataString)")
             }
             
             if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
@@ -547,7 +547,7 @@ class Constants: NSObject {
             }
             
             if let dataString = String(data: content, encoding: .utf8) {
-                //print("postRequest response: \(dataString)")
+                print("postRequest response: \(dataString)")
             }
             
             if let json = (((try? JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]) as [String : Any]??)) {
