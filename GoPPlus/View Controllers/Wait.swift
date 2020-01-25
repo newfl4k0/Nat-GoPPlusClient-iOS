@@ -79,7 +79,7 @@ class Wait: UIViewController, UIWebViewDelegate {
             let url_ =  self.cancelURL + String(id)
             self.webview.loadRequest(URLRequest(url: URL(string: url_)!))
             self.webview.isHidden = false
-            self.view.bringSubviewToFront(self.webview)
+            self.view.bringSubview(toFront: self.webview)
         }
     }
     
@@ -88,18 +88,18 @@ class Wait: UIViewController, UIWebViewDelegate {
         return url.queryItems?.first(where: { $0.name == param })?.value
     }
     
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
+    private func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         if let url_ = request.url?.absoluteString {
             
             if url_.range(of: "postauth-service-end") != nil {
                 self.webview.isHidden = true
-                self.view.sendSubviewToBack(self.webview)
+                self.view.sendSubview(toBack: self.webview)
                 self.statusLabel.text = "Servicio cancelado, espere un momento"
             }
             
             if url_.range(of: "postauth-service-error") != nil {
                 self.webview.isHidden = true
-                self.view.sendSubviewToBack(self.webview)
+                self.view.sendSubview(toBack: self.webview)
                 self.statusLabel.text = "Espere un momento"
                 
                 if let errorMessage = getQueryStringParameter(url: request.url?.absoluteString ?? "", param: "e") {
