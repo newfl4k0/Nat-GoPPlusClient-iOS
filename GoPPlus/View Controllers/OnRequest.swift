@@ -242,7 +242,7 @@ class OnRequest: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate
         if doSwipeContainerHidden {
             self.swipeHeight100Constraint.isActive = false
             self.swipeHeightLargeConstraint.isActive = true
-            self.swipeButton.setImage(UIImage(named: "chevronabajo"), for: UIControl.st .State.normal)
+            self.swipeButton.setImage(UIImage(named: "chevronabajo"), for: UIControl.State.normal)
         } else {
             self.swipeHeight100Constraint.isActive = true
             self.swipeHeightLargeConstraint.isActive = false
