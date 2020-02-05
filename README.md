@@ -1,6 +1,4 @@
-# native-client-ios
-
-Nat-GoPPlusClient-iOS
+# Nat-GoPPlusClient-iOS
 
 Native iOS GoPPlus Client
 
