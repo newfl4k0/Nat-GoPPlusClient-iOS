@@ -1,3 +1,7 @@
 # native-client-ios
-Native Client iOS
-Aplicación Móvil GoPPlus Cliente v86 - cambios diciembre 2019
+
+Nat-GoPPlusClient-iOS
+
+Native iOS GoPPlus Client
+
+iOS 9.3+ Push + Cambios Dic 2019 - Ene 2020 (Google Directions)
