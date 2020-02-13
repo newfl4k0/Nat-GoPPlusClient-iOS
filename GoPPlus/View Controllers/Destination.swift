@@ -128,7 +128,7 @@ class Destination: UIViewController, GMSMapViewDelegate, UIWebViewDelegate {
         }
         
         if self.estimatedFare <= 0 {
-            Constants.showMessage(msg: "Elige una dirección destino diferente al punto de origen")
+            Constants.showMessage(msg: "La tarifa no ha sido calculada correctamente.")
             return
         }
         

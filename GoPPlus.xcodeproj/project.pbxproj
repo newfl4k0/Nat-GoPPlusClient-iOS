@@ -781,6 +781,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.87;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -841,6 +842,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.87;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -868,7 +870,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoPPlus/GoPPlus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10083;
+				CURRENT_PROJECT_VERSION = 10087;
 				DEVELOPMENT_TEAM = 426NG3E4Q3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -881,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.83;
+				MARKETING_VERSION = 1.0.87;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pplus.go;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -898,7 +900,7 @@
 				CODE_SIGN_ENTITLEMENTS = GoPPlus/GoPPlus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10083;
+				CURRENT_PROJECT_VERSION = 10087;
 				DEVELOPMENT_TEAM = 426NG3E4Q3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -911,7 +913,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.83;
+				MARKETING_VERSION = 1.0.87;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pplus.go;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -4,7 +4,7 @@ import Foundation
 
 class Constants: NSObject {
     
-    static let APIKEY:String = "AIzaSyAZFo0yjth7qmCgB6Xf4z30FCUbv5IC0i4A"
+    static let APIKEY:String = "AIzaSyDgcyHmFkBOsRa_Jl7kCJ856n0AvbQ4Q6M"
     static let SECRET:String = "g0sp3qtrUm_"
     
     struct APIEndpoint {
@@ -372,8 +372,8 @@ class Constants: NSObject {
         
         var request = URLRequest(url: urlComponent.url!)
         
-        //print("=== GET ===")
-        //print(urlComponent.url!)
+        print("=== GET ===")
+        print(urlComponent.url!)
         
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

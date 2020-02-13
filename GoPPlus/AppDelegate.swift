@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyAZFo0yjth7qmCgB6Xf4z30FCUbv5IC0i4")
+        GMSServices.provideAPIKey("AIzaSyDgcyHmFkBOsRa_Jl7kCJ856n0AvbQ4Q6M")
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //Push Notifications
