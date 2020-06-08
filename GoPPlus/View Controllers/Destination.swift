@@ -254,7 +254,7 @@ class Destination: UIViewController, GMSMapViewDelegate, UIWebViewDelegate {
         let coordinate2 = CLLocation(latitude: self.endAddress.latitude, longitude: self.endAddress.longitude)
         self.selectedKM = coordinate1.distance(from: coordinate2) / 1000
         
-        
+        	
         let origin = String(self.startAddress.latitude) + "," + String(self.startAddress.longitude)
         let destination = String(self.endAddress.latitude) + "," + String(self.endAddress.longitude)
         
